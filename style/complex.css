@@ -287,7 +287,7 @@ body.complex-page {
   border-bottom: solid 1px #e0e0e1;
 }
 
-.complex-location-name {
+.complex-location-content-block-name {
   margin: 0;
   font-family: 'Fira Sans';
   font-size: 1rem;
@@ -296,11 +296,10 @@ body.complex-page {
   color: #3e4247;
 }
 
-.complex-location-duration {
+.complex-location-content-block-duration {
   margin: 0.5rem 0 0 0;
   font-family: 'Fira Sans';
   font-size: 1rem;
   line-height: 1.375rem;
   color: #a9afb6;
 }
-
