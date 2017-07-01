@@ -52,7 +52,7 @@ body.complex-page {
   margin: -2.625rem 0 0 0.5rem;
 }
 
-.button-complex-view-photos {
+.complex-carousel-button-view-photos {
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 2px;
   cursor: pointer;
@@ -278,6 +278,10 @@ body.complex-page {
 }
 
 .complex-location-content {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+}
+
+.complex-location-content-block {
   padding: 1.5rem;
   background-color: #fff;
   border-bottom: solid 1px #e0e0e1;
@@ -300,6 +304,3 @@ body.complex-page {
   color: #a9afb6;
 }
 
-.location-content-blocks {
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
-}
