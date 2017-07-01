@@ -84,7 +84,7 @@ body.complex-page {
 }
 
 .complex-property-subheading {
-  font-family: 'Fira Sans';
+  font-family: 'Fira sans', sans-serif;
   font-size: 0.875rem;
   font-weight: 300;
   display: block;
@@ -104,6 +104,7 @@ body.complex-page {
   font-weight: bold;
   line-height: 1.6875rem;
   font-family: 'Philosopher';
+  color: #3e4247;
 }
 
 .complex-characteristics-title {
