@@ -44,6 +44,7 @@ body.complex-page {
 
 .complex-carousel-images {
   display: flex;
+  overflow-x: hidden;
 }
 
 .complex-carousel-button-wrap {
