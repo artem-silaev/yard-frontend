@@ -12,29 +12,25 @@ import Offers from './Offers';
 import District from './District';
 import Location from './Location';
 
-export default () => {
-  return (
-  <div>
+export default () => (
+<div>
   <Helmet>
     <title>Compass - ЖК Полянка/44</title>
   </Helmet>
   <BodyClassName className="complex-page">
-  <div>
-    <MainTitle />
-	<Carousel />
-    <main className="container">
-	  <Properties />
-	  <Characteristics />
-	  <Description />
-	  <Infrastructure />
-    </main>
-
-	<Offers />
-	<District />
-    <Location />
-
-	</div>
-	</BodyClassName>
-	</div>
-  );
-};
+    <div>
+      <MainTitle />
+      <Carousel />
+      <main className="container">
+        <Properties />
+        <Characteristics />
+        <Description />
+        <Infrastructure />
+      </main>
+      <Offers />
+      <District />
+      <Location />
+    </div>
+  </BodyClassName>
+</div>
+);
