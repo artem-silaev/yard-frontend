@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid, Row } from 'react-flexbox-grid';
 
 export default () => (
 <section className="complex-carousel">
@@ -9,12 +10,12 @@ export default () => (
     <img src="./images/carousel-4.jpg" alt=""/>
     <img src="./images/carousel-5.jpg" alt=""/>
   </div>
-  <div className="container">
-    <div className="row">
+  <Grid>
+    <Row>
       <div className="complex-carousel-button-wrap">
-      <button className="complex-carousel-button-view-photos">41 фотография</button>
+        <button className="complex-carousel-button-view-photos">41 фотография</button>
       </div>
-    </div>
-  </div>
+    </Row>
+  </Grid>
 </section>
 );

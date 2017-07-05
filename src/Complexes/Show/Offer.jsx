@@ -1,4 +1,5 @@
 import React from "react";
+import { Row } from 'react-flexbox-grid';
 
 export default props => (
 	<div className="complex-offer">
@@ -11,10 +12,10 @@ export default props => (
 			<dt className="complex-offer-property-name">Стоимость</dt>
 			<dd className="complex-offer-property-value">от {props.price.min} до {props.price.max} млн руб</dd>
 	  </dl>
-	  <div className="row center-lg">
-		<div className="complex-offer-button-wrapper">
-		  <button className="complex-offer-button">Посмотреть предложения</button>
-		</div>
-	  </div>
+	  <Row center="lg">
+			<div className="complex-offer-button-wrapper">
+			  <button className="complex-offer-button">Посмотреть предложения</button>
+			</div>
+	  </Row>
 	</div>
 );

@@ -1,12 +1,13 @@
 import React from "react";
+import { Row, Col } from 'react-flexbox-grid';
 
 export default () => (
   <div className="complex-description">
-    <div className="row">
-      <div className="col-lg-2">
+    <Row>
+      <Col lg={2}>
         <h2 className="complex-description-title">Описание</h2>
-      </div>
-      <div className="col-lg-10">
+      </Col>
+      <Col lg={10}>
         <p className="complex-description-text">
         ВТБ Арена Парк&nbsp;&mdash; современный квартал в&nbsp;10&nbsp;минутах езды от&nbsp;Кремля. Территория разделена на&nbsp;три зоны: жилой район, центральный стадион &laquo;Динамо&raquo; и&nbsp;большой спортивный парк.
         <br/><br/>
@@ -15,7 +16,7 @@ export default () => (
         <br/><br/>
         Тихий жилой район от&nbsp;шумного стадиона отделяет Парк Физкультуры и&nbsp;Отдыха. Здесь каждый найдет занятие: для детей оборудованы игровые зоны, для подростков&nbsp;&mdash; спортивные площадки на&nbsp;открытом воздухе, для взрослых&nbsp;&mdash; велосипедные дорожки и&nbsp;зоны отдыха, где можно подышать свежим воздухом во&nbsp;время рабочего перерыва.
         </p>
-      </div>
-    </div>
+      </Col>
+    </Row>
   </div>
 );

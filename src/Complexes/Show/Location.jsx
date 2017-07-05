@@ -1,13 +1,14 @@
 import React from "react";
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 export default () => (
 <section className="complex-location">
-  <div className="container">
-    <div className="row">
-      <div className="col-lg-6">
+  <Grid>
+    <Row>
+      <Col lg={6}>
         <img className="complex-map" src="images/map.png" alt=""/>
-      </div>
-      <div className="col-lg-6">
+      </Col>
+      <Col lg={6}>
         <div className="complex-location-content">
           <div className="complex-location-content-block">
             <p className="complex-location-content-block-name">Красный октябрь</p>
@@ -22,8 +23,8 @@ export default () => (
             <p className="complex-location-content-block-duration">14 минуты, 4 км</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </Col>
+    </Row>
+  </Grid>
 </section>
 );
