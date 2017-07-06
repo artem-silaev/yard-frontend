@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export default () => (
+export default () =>
   <div className="complex-properties">
     <div className="complex-properties-item">
       <h2 className="complex-property-heading">
@@ -9,13 +9,16 @@ export default () => (
     </div>
     <div className="complex-properties-item">
       <h2 className="complex-property-heading">
-        John McAslan + Partners<small className="complex-property-subheading">архитектор</small>
+        John McAslan + Partners<small className="complex-property-subheading">
+          архитектор
+        </small>
       </h2>
     </div>
     <div className="complex-properties-item">
       <h2 className="complex-property-heading">
-        Группа «ПСН»<small className="complex-property-subheading">застройщик</small>
+        Группа «ПСН»<small className="complex-property-subheading">
+          застройщик
+        </small>
       </h2>
     </div>
-  </div>
-);
+  </div>;

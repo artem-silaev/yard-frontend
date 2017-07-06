@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 
-export default () => (
+export default () =>
   <div className="complex-characteristics">
     <h2 className="complex-characteristics-title">Характеристики</h2>
     <Row>
@@ -48,5 +48,4 @@ export default () => (
         </dl>
       </Col>
     </Row>
-  </div>
-);
+  </div>;
