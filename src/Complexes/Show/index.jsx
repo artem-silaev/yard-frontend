@@ -22,12 +22,12 @@ export default () => (
     <div>
       <MainTitle />
       <Carousel />
-      <main className="container">
+      <Grid>
         <Properties />
         <Characteristics />
         <Description />
         <Infrastructure />
-      </main>
+      </Grid>
       <section className="complex-offers">
         <Grid>
           <h2 className="complex-offers-title">Предложения в ЖК «Полянка/44»</h2>
