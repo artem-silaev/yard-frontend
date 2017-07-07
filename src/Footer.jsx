@@ -49,6 +49,11 @@ const LinkArrow = styled(Link)`
   margin-top: 0.8rem;
 `;
 
+const Arrow = styled.img`
+  width: 0.5rem;
+  height: 0.5rem;
+`;
+
 const Copyright = styled.p`
   margin-top: 5.7rem;
   margin-bottom: 1.75rem;
@@ -81,7 +86,7 @@ export default () =>
               Резиденция Монэ
             </Link>
             <LinkArrow href="#">
-              Все ЖК Москвы <img className="link-arrow" src={arrowImage} />
+              Все ЖК Москвы <Arrow className="link-arrow" src={arrowImage} />
             </LinkArrow>
           </Company>
         </Col>
