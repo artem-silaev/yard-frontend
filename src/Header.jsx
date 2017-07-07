@@ -4,7 +4,6 @@ import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
 
 import './style/style.css';
-import './style/complex.css';
 
 const Header = styled.header`
   background-color: #fff;
@@ -15,18 +14,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Logo = styled.img`
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-`;
-
 const Menu = styled.nav`
-  display: flex;
-  line-height: 1rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-  justify-content: space-between;
-  align-items: center;
+  font-size: 1rem;
+  color: #3e4247;
+  margin: 1.5rem 0;
 `;
 
 const MenuLink = styled.a`
@@ -40,7 +31,7 @@ export default () =>
   <Header>
     <Grid>
       <Wrapper>
-        <Logo src={compassLogo} />
+        <img src={compassLogo} />
         <Menu>
           <MenuLink to="#">
             Купить

@@ -50,28 +50,16 @@ export default () =>
         <Col lg={6}>
           <Content>
             <Block>
-              <Name>
-                Красный октябрь
-              </Name>
-              <Duration>
-                24 минуты, 6 км
-              </Duration>
+              <Name>Красный октябрь</Name>
+              <Duration>24 минуты, 6 км</Duration>
             </Block>
             <Block>
-              <Name>
-                World class
-              </Name>
-              <Duration>
-                2 минуты, 300 м
-              </Duration>
+              <Name>World class</Name>
+              <Duration>2 минуты, 300 м</Duration>
             </Block>
             <Block>
-              <Name>
-                Третьяковская галерея
-              </Name>
-              <Duration>
-                14 минуты, 4 км
-              </Duration>
+              <Name>Третьяковская галерея</Name>
+              <Duration>14 минуты, 4 км</Duration>
             </Block>
           </Content>
         </Col>

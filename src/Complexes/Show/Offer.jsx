@@ -49,9 +49,7 @@ const Button = styled.button`
 
 export default props =>
   <Offer>
-    <Title>
-      {props.amount}-комнатные квартиры
-    </Title>
+    <Title>{props.amount}-комнатные квартиры</Title>
     <Property>
       <PropertyName>Площадь</PropertyName>
       <PropertyValue>

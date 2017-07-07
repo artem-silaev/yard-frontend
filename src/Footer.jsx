@@ -68,7 +68,7 @@ export default () =>
     <Grid>
       <Row>
         <Col xs={4}>
-          <NameCompany>ООО «Ярд»</NameCompany>>
+          <NameCompany>ООО «Ярд»</NameCompany>
           <Text>ОГРН 1175074002531</Text>
           <Text>ИНН 5036165365</Text>
           <Phone>+7 (999) 821-14-88</Phone>
