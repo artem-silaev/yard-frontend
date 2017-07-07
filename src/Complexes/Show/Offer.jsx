@@ -19,12 +19,12 @@ const Property = styled.dl`
   margin: 0 0 1.5625rem 0;
 `;
 
-const PropertyName = styled.dt`
+const Name = styled.dt`
   color: #a9afb6;
   margin: 0 0 0.5rem 0;
 `;
 
-const PropertyValue = styled.dd`
+const Value = styled.dd`
   margin: 0;
   font-family: 'Fira Sans';
   color: #3e4247;
@@ -51,16 +51,16 @@ export default props =>
   <Offer>
     <Title>{props.amount}-комнатные квартиры</Title>
     <Property>
-      <PropertyName>Площадь</PropertyName>
-      <PropertyValue>
+      <Name>Площадь</Name>
+      <Value>
         от {props.square.min} до {props.square.max} м²
-      </PropertyValue>
+      </Value>
     </Property>
     <Property>
-      <PropertyName>Стоимость</PropertyName>
-      <PropertyValue>
+      <Name>Стоимость</Name>
+      <Value>
         от {props.price.min} до {props.price.max} млн руб
-      </PropertyValue>
+      </Value>
     </Property>
     <Row center="lg">
       <ButtonWrapper>
