@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Header = styled.section`
   padding-top: 1.5rem;
   padding-bottom: 1rem;
+  border-top: solid 1px #eaebf0;
 `;
 
 const Name = styled.h1`
@@ -26,8 +27,7 @@ const Address = styled.p`
 `;
 
 const ButtonWrapper = styled.div`
-  position: absolute;
-  margin: -2.625rem 0 0 0.5rem;
+  display: block;
 `;
 
 const Button = styled.button`

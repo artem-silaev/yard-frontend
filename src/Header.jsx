@@ -1,6 +1,6 @@
 import React from 'react';
 import compassLogo from './images/compass-logo.svg';
-import { Grid, Row } from 'react-flexbox-grid';
+import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
 
 import './style/style.css';
@@ -16,14 +16,17 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 11rem;
-  height: 1.6rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 `;
 
 const Menu = styled.nav`
-  font-size: 1rem;
-  color: #3e4247;
-  margin: 1.5rem 0;
+  display: flex;
+  line-height: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const MenuLink = styled.a`

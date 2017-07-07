@@ -59,7 +59,7 @@ export default () =>
             </Block>
             <Block>
               <Name>
-                World className
+                World class
               </Name>
               <Duration>
                 2 минуты, 300 м

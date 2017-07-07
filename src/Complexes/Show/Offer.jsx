@@ -3,8 +3,8 @@ import { Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
 
 const Offer = styled.div`
-  padding: 4rem 0 4rem 0;
-  background-color: #f4f5f9;
+  background-color: #fff;
+  padding: 1.5rem 2rem;
 `;
 
 const Title = styled.div`
