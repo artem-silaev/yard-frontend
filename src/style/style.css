@@ -17,10 +17,7 @@ body {
   background-color: #fff;
 }
 
-.header-main .container {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .header-main .menu {
   font-size: 1rem;
