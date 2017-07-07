@@ -1,14 +1,30 @@
 import React from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
+import styled from 'styled-components';
 
 import Offer from './Offer';
 
+const Offers = styled.section`
+  padding: 4rem 0 4rem 0;
+  background-color: #f4f5f9;
+`;
+
+const Title = styled.h2`
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  font-family: 'Philosopher';
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3e4247;
+  text-align: center;
+`;
+
 export default props =>
-  <section className="complex-offers">
+  <Offers>
     <Grid>
-      <h2 className="complex-offers-title">
+      <Title>
         Предложения в ЖК «Полянка/44»
-      </h2>
+      </Title>
       <Row>
         <Col lg={4}>
           <Offer
@@ -33,4 +49,4 @@ export default props =>
         </Col>
       </Row>
     </Grid>
-  </section>;
+  </Offers>;
