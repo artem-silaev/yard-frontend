@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Properties = styled.div`
+const MainInformation = styled.div`
   display: flex;
   margin-top: 1.5rem;
   border-bottom: 1px solid #e0e0e1;
 `;
 
-const Item = styled.div`
+const Block = styled.div`
   margin-right: 3rem;
   margin-bottom: 1.5rem;
 `;
@@ -31,20 +31,20 @@ const Subheading = styled.small `
 `;
 
 export default () =>
-  <Properties>
-    <Item>
+  <MainInformation>
+    <Block>
       <Heading>
         950 <Subheading>предложений</Subheading>
       </Heading>
-    </Item>
-    <Item>
+    </Block>
+    <Block>
       <Heading>
         John McAslan + Partners<Subheading>архитектор</Subheading>
       </Heading>
-    </Item>
-    <Item>
+    </Block>
+    <Block>
       <Heading>
         Группа «ПСН»<Subheading>застройщик</Subheading>
       </Heading>
-    </Item>
-  </Properties>;
+    </Block>
+  </MainInformation>;

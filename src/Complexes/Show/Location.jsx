@@ -7,7 +7,7 @@ const Location = styled.section`
   padding-bottom: 3.75rem;
 `;
 
-const Map = styled.img`
+const LocationMap = styled.img`
   width: 100%;
   height: 19.125rem;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
@@ -45,7 +45,7 @@ export default () =>
     <Grid>
       <Row>
         <Col lg={6}>
-          <Map src={process.env.PUBLIC_URL + '/images/map.png'} alt="" />
+          <LocationMap src={process.env.PUBLIC_URL + '/images/map.png'} alt="" />
         </Col>
         <Col lg={6}>
           <Content>
