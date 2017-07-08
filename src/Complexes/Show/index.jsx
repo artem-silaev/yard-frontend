@@ -5,7 +5,7 @@ import { Grid } from 'react-flexbox-grid';
 
 import MainTitle from './MainTitle';
 import Carousel from './Carousel';
-import Properties from './Properties';
+import MainInformation from './MainInformation';
 import Characteristics from './Characteristics';
 import Description from './Description';
 import Infrastructure from './Infrastructure';
@@ -23,7 +23,7 @@ export default () =>
         <MainTitle />
         <Carousel />
         <Grid>
-          <Properties />
+          <MainInformation />
           <Characteristics />
           <Description />
           <Infrastructure />

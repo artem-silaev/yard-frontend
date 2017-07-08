@@ -1,10 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Grid } from 'react-flexbox-grid';
-
+import styled from 'styled-components';
 import Logo from './Logo';
 import Discover from './Discover';
 import Card from './Card';
+
+const Content = styled.main`
+  display: block;
+`;
+
+const Cards = styled.div`
+  margin-top: 4rem;
+`;
 
 export default () =>
   <div>
@@ -12,10 +20,10 @@ export default () =>
       <title>Complexes</title>
     </Helmet>
     <Logo />
-    <main className="content">
+    <Content>
       <Grid>
         <Discover />
-        <div className="cards">
+        <Cards>
           <Card
             url="/complex/1"
             location="South Beach, San Francisco"
@@ -37,7 +45,7 @@ export default () =>
             description="The Lewis Steel Building is a masterful industrial conversion located in the heart of Williamsburg. Located at 76 North 4th Street, the former 1930's steel factory has been transformed into 83 individually unique and luxury loft apartments."
             image="./images/bitmap1.png"
           />
-        </div>
+      </Cards>
       </Grid>
-    </main>
+    </Content>
   </div>;
