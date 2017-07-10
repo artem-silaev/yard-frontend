@@ -43,7 +43,7 @@ const Description = styled.p`
 `;
 
 export default props =>
-  <Card href={props.url}>
+  (<Card href={props.url}>
     <img src={props.image} alt="" />
     <Content>
       <Location>
@@ -56,4 +56,4 @@ export default props =>
         {props.description}
       </Description>
     </Content>
-  </Card>;
+  </Card>);

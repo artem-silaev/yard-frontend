@@ -10,6 +10,6 @@ const Logo = styled.section`
 `;
 
 export default () =>
-  <Logo>
+  (<Logo>
     <img src={mainLogo} alt="" />
-  </Logo>;
+  </Logo>);

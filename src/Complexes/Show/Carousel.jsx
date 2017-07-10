@@ -25,13 +25,13 @@ const Button = styled.button`
 `;
 
 export default () =>
-  <section>
+  (<section>
     <Images>
-      <img src={process.env.PUBLIC_URL + '/images/carousel-1.jpg'} alt="" />
-      <img src={process.env.PUBLIC_URL + '/images/carousel-2.jpg'} alt="" />
-      <img src={process.env.PUBLIC_URL + '/images/carousel-3.jpg'} alt="" />
-      <img src={process.env.PUBLIC_URL + '/images/carousel-4.jpg'} alt="" />
-      <img src={process.env.PUBLIC_URL + '/images/carousel-5.jpg'} alt="" />
+      <img src={`${process.env.PUBLIC_URL}/images/carousel-1.jpg`} alt="" />
+      <img src={`${process.env.PUBLIC_URL}/images/carousel-2.jpg`} alt="" />
+      <img src={`${process.env.PUBLIC_URL}/images/carousel-3.jpg`} alt="" />
+      <img src={`${process.env.PUBLIC_URL}/images/carousel-4.jpg`} alt="" />
+      <img src={`${process.env.PUBLIC_URL}/images/carousel-5.jpg`} alt="" />
     </Images>
     <Grid>
       <Row>
@@ -40,4 +40,4 @@ export default () =>
         </ButtonWrapper>
       </Row>
     </Grid>
-  </section>;
+  </section>);

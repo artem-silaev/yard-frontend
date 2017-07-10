@@ -25,7 +25,7 @@ const Text = styled.p`
 `;
 
 export default () =>
-  <Description>
+  (<Description>
     <Row>
       <Col lg={2}>
         <Title>Описание</Title>
@@ -66,4 +66,4 @@ export default () =>
         </Text>
       </Col>
     </Row>
-  </Description>;
+  </Description>);

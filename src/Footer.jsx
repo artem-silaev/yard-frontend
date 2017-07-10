@@ -64,7 +64,7 @@ const Copyright = styled.p`
 `;
 
 export default () =>
-  <Footer>
+  (<Footer>
     <Grid>
       <Row>
         <Col xs={4}>
@@ -113,4 +113,4 @@ export default () =>
         </Col>
       </Row>
     </Grid>
-  </Footer>;
+  </Footer>);

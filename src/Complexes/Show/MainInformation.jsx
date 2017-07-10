@@ -31,7 +31,7 @@ const Subheading = styled.small `
 `;
 
 export default () =>
-  <MainInformation>
+  (<MainInformation>
     <Block>
       <Heading>
         950 <Subheading>предложений</Subheading>
@@ -47,4 +47,4 @@ export default () =>
         Группа «ПСН»<Subheading>застройщик</Subheading>
       </Heading>
     </Block>
-  </MainInformation>;
+  </MainInformation>);

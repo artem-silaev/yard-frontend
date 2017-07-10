@@ -19,8 +19,8 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-export default props =>
-  <Offers>
+export default () =>
+  (<Offers>
     <Grid>
       <Title>
         Предложения в ЖК «Полянка/44»
@@ -49,4 +49,4 @@ export default props =>
         </Col>
       </Row>
     </Grid>
-  </Offers>;
+  </Offers>);

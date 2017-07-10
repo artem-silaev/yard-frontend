@@ -48,7 +48,7 @@ const Button = styled.button`
 `;
 
 export default props =>
-  <Offer>
+  (<Offer>
     <Title>{props.amount}-комнатные квартиры</Title>
     <Property>
       <Name>Площадь</Name>
@@ -67,4 +67,4 @@ export default props =>
         <Button>Посмотреть предложения</Button>
       </ButtonWrapper>
     </Row>
-  </Offer>;
+  </Offer>);

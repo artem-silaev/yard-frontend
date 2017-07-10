@@ -38,7 +38,7 @@ const Photo = styled.img`
 `;
 
 export default () =>
-  <District>
+  (<District>
     <Grid>
       <Row middle="lg" between="lg">
         <Col lg={6}>
@@ -47,15 +47,15 @@ export default () =>
             Исторический центр Москвы в двух <br />километрах от Кремля
           </Description>
           <Link href="#">
-            Гид по Якиманке >
+            Гид по Якиманке &#62;
           </Link>
         </Col>
         <Col lg={6}>
           <Photo
             className="complex-district-photo"
-            src={process.env.PUBLIC_URL + '/images/polyanka-photo.jpg'}
+            src={`${process.env.PUBLIC_URL}/images/polyanka-photo.jpg`}
           />
         </Col>
       </Row>
     </Grid>
-  </District>;
+  </District>);

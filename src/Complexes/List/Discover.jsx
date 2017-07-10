@@ -23,7 +23,7 @@ const Button = styled.button`
 `;
 
 export default () =>
-  <Row center="lg">
+  (<Row center="lg">
     <Col lg={8}>
       <Title>Discover Our New Developments</Title>
       <Text>
@@ -33,4 +33,4 @@ export default () =>
       </Text>
       <Button>Contact The Team</Button>
     </Col>
-  </Row>;
+  </Row>);

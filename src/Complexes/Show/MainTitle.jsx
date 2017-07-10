@@ -44,7 +44,7 @@ const Button = styled.button`
 `;
 
 export default () =>
-  <Header>
+  (<Header>
     <Grid>
       <Row between="lg">
         <Col lg>
@@ -58,4 +58,4 @@ export default () =>
         </ButtonWrapper>
       </Row>
     </Grid>
-  </Header>;
+  </Header>);
