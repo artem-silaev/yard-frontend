@@ -14,7 +14,7 @@ import District from './District';
 import Location from './Location';
 
 export default () =>
-  <div>
+  (<div>
     <Helmet>
       <title>Compass - ЖК Полянка/44</title>
     </Helmet>
@@ -33,4 +33,4 @@ export default () =>
         <Location />
       </div>
     </BodyClassName>
-  </div>;
+  </div>);

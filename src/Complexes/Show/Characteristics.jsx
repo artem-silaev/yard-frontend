@@ -42,7 +42,7 @@ const Value = styled.dd`
 `;
 
 export default () =>
-  <Characteristics>
+  (<Characteristics>
     <Title>Характеристики</Title>
     <Row>
       <Col lg={4}>
@@ -88,4 +88,4 @@ export default () =>
         </Block>
       </Col>
     </Row>
-  </Characteristics>;
+  </Characteristics>);

@@ -1,7 +1,7 @@
 import React from 'react';
-import compassLogo from './images/compass-logo.svg';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import compassLogo from './images/compass-logo.svg';
 
 import './style/style.css';
 
@@ -28,10 +28,10 @@ const MenuLink = styled.a`
 `;
 
 export default () =>
-  <Header>
+  (<Header>
     <Grid>
       <Wrapper>
-        <img src={compassLogo} />
+        <img alt="" src={compassLogo} />
         <Menu>
           <MenuLink to="#">
             Купить
@@ -45,4 +45,4 @@ export default () =>
         </Menu>
       </Wrapper>
     </Grid>
-  </Header>;
+  </Header>);

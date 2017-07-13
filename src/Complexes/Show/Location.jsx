@@ -41,11 +41,11 @@ const Duration = styled.p`
 `;
 
 export default () =>
-  <Location>
+  (<Location>
     <Grid>
       <Row>
         <Col lg={6}>
-          <LocationMap src={process.env.PUBLIC_URL + '/images/map.png'} alt="" />
+          <LocationMap src={`${process.env.PUBLIC_URL}/images/map.png`} alt="" />
         </Col>
         <Col lg={6}>
           <Content>
@@ -65,4 +65,4 @@ export default () =>
         </Col>
       </Row>
     </Grid>
-  </Location>;
+  </Location>);

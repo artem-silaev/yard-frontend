@@ -24,7 +24,7 @@ const Text = styled.p`
 `;
 
 export default () =>
-  <Infrastructure>
+  (<Infrastructure>
     <Title>Инфраструктура</Title>
     <Row>
       <Col lg={2}>
@@ -57,4 +57,4 @@ export default () =>
         <Text>Частная школа</Text>
       </Col>
     </Row>
-  </Infrastructure>;
+  </Infrastructure>);
