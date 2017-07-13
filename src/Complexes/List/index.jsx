@@ -25,26 +25,25 @@ class Complexes extends Component {
   componentDidMount() {
     fetch('https://yard.moscow/api/v1/complexes?filter%5Bstate%5D=public')
       .then(responce => responce.json())
-      .then(json => {
+      .then((json) => {
         this.setState({
-          complexes: json.items
+          complexes: json.items,
         });
       });
   }
 
   render() {
-    console.log(this.state);
     return (
-        <div>
-          <Helmet>
-            <title>Complexes</title>
-          </Helmet>
-          <Logo />
-          <Content>
-            <Grid>
-              <Discover />
-              <Cards>
-                {this.state.complexes.map(complex =>
+      <div>
+        <Helmet>
+          <title>Complexes</title>
+        </Helmet>
+        <Logo />
+        <Content>
+          <Grid>
+            <Discover />
+            <Cards>
+              {this.state.complexes.map(complex =>
                 (<Card
                   url={`/complex/${complex.id}`}
                   location={`${complex.location.subLocalityName}, ${complex.location.localityName}`}
@@ -53,12 +52,12 @@ class Complexes extends Component {
                   image="./images/bitmap1.png"
                 />),
               )}
-              </Cards>
-            </Grid>
-          </Content>
-        </div>
-      );
-    }
+            </Cards>
+          </Grid>
+        </Content>
+      </div>
+    );
+  }
 }
 
 export default Complexes;
