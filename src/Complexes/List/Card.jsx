@@ -17,6 +17,7 @@ const Content = styled.article`
   background-color: #fff;
   padding: 1.5rem 5.38125rem 0 1rem;
   border-bottom: 0.125rem solid #646971;
+  width: 100%;
 `;
 
 const Location = styled.p`
