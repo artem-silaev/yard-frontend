@@ -45,7 +45,7 @@ export default class Complexes extends Component {
             <Cards>
               {this.state.complexes.map(complex =>
                 (<Card
-                  url={`/complex/${complex.id}`}
+                  url={`/complexes/${complex.slug}`}
                   location={`${complex.location.subLocalityName}, ${complex.location.street}, ${complex.location.house}`}
                   address={complex.name}
                   description={complex.shortDescription}

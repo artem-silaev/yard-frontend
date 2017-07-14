@@ -1,7 +1,5 @@
 export function getExternalImageUrl(image, height = 512) {
-  return image ?
-  `https://s3-eu-central-1.amazonaws.com/yard-images/${image.id}-${height}` :
-  `http://via.placeholder.com/${height}`;
+  return `https://s3-eu-central-1.amazonaws.com/yard-images/${image.id}-${height}`;
 }
 const API_URL = 'https://yard.moscow/api/v1/';
 
@@ -18,5 +16,5 @@ export function getPhotoCountLocale(count) {
 }
 
 export function formatPrice(price) {
-  return Math.round((price / 1000000) * 10) / 10;
+  return (price / 1000000).toFixed(2);
 }

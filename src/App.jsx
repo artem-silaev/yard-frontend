@@ -11,7 +11,7 @@ export default () =>
     <div className="App">
       <Header />
       <Route exact path="/" component={List} />
-      <Route path="/complex/:id" component={Show} />
+      <Route path="/complexes/:slug" component={Show} />
       <Footer />
     </div>
   </Router>);

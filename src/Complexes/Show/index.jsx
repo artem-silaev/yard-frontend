@@ -23,7 +23,7 @@ export default class Complexes extends Component {
   }
 
   componentDidMount() {
-    get(`complexes/${this.props.match.params.id}`)
+    get(`complexes/${this.props.match.params.slug}`)
       .then((json) => {
         this.setState({
           complex: json,
@@ -32,27 +32,28 @@ export default class Complexes extends Component {
   }
 
   render() {
-    if (!this.state.complex.id) { return null; }
+    const complex = this.state.complex;
+    if (!complex.id) { return null; }
     return (
       <div>
         <Helmet>
-          <title>{`Compass - ${this.state.complex.name}`}</title>
+          <title>{`Compass - ${complex.name}`}</title>
         </Helmet>
         <BodyClassName className="complex-page">
           <div>
-            <MainTitle name={this.state.complex.name} address={this.state.complex.address} />
-            <Carousel images={this.state.complex.images} />
+            <MainTitle name={complex.name} address={complex.address} />
+            <Carousel images={complex.images} />
             <Grid>
               <MainInformation
-                offersCount={this.state.complex.statistics.propertiesCount}
-                architect={this.state.complex.details.architect}
+                offersCount={complex.statistics.propertiesCount}
+                architect={complex.details.architect}
                 developer="Группа «ПСН»"
               />
-              <Characteristics complex={this.state.complex} />
-              <Description />
-              <Infrastructure />
+              <Characteristics complex={complex} />
+              {complex.fullDescription && <Description text={complex.fullDescription} />}
+              <Infrastructure amenities={complex.amenities} />
             </Grid>
-            <Offers name={this.state.complex.name} />
+            <Offers name={complex.name} />
             <District />
             <Location />
           </div>
