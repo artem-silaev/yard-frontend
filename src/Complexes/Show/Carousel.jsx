@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { getExternalImageUrl, getPhotoCountLocale } from '../../utils';
 
 const Images = styled.section`
   display: flex;
@@ -24,20 +25,26 @@ const Button = styled.button`
   color: #fff;
 `;
 
-export default () =>
-  (<section>
-    <Images>
-      <img src={`${process.env.PUBLIC_URL}/images/carousel-1.jpg`} alt="" />
-      <img src={`${process.env.PUBLIC_URL}/images/carousel-2.jpg`} alt="" />
-      <img src={`${process.env.PUBLIC_URL}/images/carousel-3.jpg`} alt="" />
-      <img src={`${process.env.PUBLIC_URL}/images/carousel-4.jpg`} alt="" />
-      <img src={`${process.env.PUBLIC_URL}/images/carousel-5.jpg`} alt="" />
-    </Images>
-    <Grid>
-      <Row>
-        <ButtonWrapper>
-          <Button>41 фотография</Button>
-        </ButtonWrapper>
-      </Row>
-    </Grid>
-  </section>);
+export default (props) => {
+  const images = props.images || [];
+  if (images.length === 0) { return null; }
+  return (
+    <section>
+      <Images>
+        {images.map(image => (
+          <img
+            key={image.id}
+            src={getExternalImageUrl(image)}
+            alt={image.id}
+          />
+      ))}
+      </Images>
+      <Grid>
+        <Row>
+          <ButtonWrapper>
+            <Button>{getPhotoCountLocale(images.length)}</Button>
+          </ButtonWrapper>
+        </Row>
+      </Grid>
+    </section>);
+};

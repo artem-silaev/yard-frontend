@@ -13,11 +13,17 @@ const Card = styled.a`
   }
 `;
 
+const Image = styled.img`
+  width: 500px;
+  height: 350px;
+`;
+
 const Content = styled.article`
   background-color: #fff;
   padding: 1.5rem 5.38125rem 0 1rem;
   border-bottom: 0.125rem solid #646971;
   width: 100%;
+  display: block;
 `;
 
 const Location = styled.p`
@@ -45,7 +51,7 @@ const Description = styled.p`
 
 export default props =>
   (<Card href={props.url}>
-    <img src={props.image} alt="" />
+    <Image src={props.image} alt="" />
     <Content>
       <Location>
         {props.location}

@@ -43,14 +43,14 @@ const Button = styled.button`
   background: transparent;
 `;
 
-export default () =>
+export default props =>
   (<Header>
     <Grid>
       <Row between="lg">
         <Col lg>
-          <Name>Жилой комплекс «Полянка/44»</Name>
+          <Name>{`Жилой комплекс «${props.name}»`}</Name>
           <Address>
-            Район Якиманка, улица Большая Полянка, дом 44 • 119180
+            {props.address}
           </Address>
         </Col>
         <ButtonWrapper>

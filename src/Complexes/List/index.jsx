@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import Discover from './Discover';
 import Card from './Card';
+import { get, getExternalImageUrl } from '../../utils';
 
 const Content = styled.main`
   display: block;
@@ -14,7 +15,7 @@ const Cards = styled.div`
   margin-top: 4rem;
 `;
 
-class Complexes extends Component {
+export default class Complexes extends Component {
   constructor() {
     super();
     this.state = {
@@ -23,8 +24,7 @@ class Complexes extends Component {
   }
 
   componentDidMount() {
-    fetch('https://yard.moscow/api/v1/complexes?filter%5Bstate%5D=public')
-      .then(responce => responce.json())
+    get('complexes?filter%5Bstate%5D=public')
       .then((json) => {
         this.setState({
           complexes: json.items,
@@ -46,10 +46,10 @@ class Complexes extends Component {
               {this.state.complexes.map(complex =>
                 (<Card
                   url={`/complex/${complex.id}`}
-                  location={`${complex.location.subLocalityName}, ${complex.location.localityName}`}
+                  location={`${complex.location.subLocalityName}, ${complex.location.street}, ${complex.location.house}`}
                   address={complex.name}
                   description={complex.shortDescription}
-                  image="./images/bitmap1.png"
+                  image={getExternalImageUrl(complex.image)}
                 />),
               )}
             </Cards>
@@ -59,5 +59,3 @@ class Complexes extends Component {
     );
   }
 }
-
-export default Complexes;

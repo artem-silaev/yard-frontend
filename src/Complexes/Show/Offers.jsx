@@ -19,11 +19,11 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-export default () =>
+export default props =>
   (<Offers>
     <Grid>
       <Title>
-        Предложения в ЖК «Полянка/44»
+        Предложения в ЖК «{props.name}»
       </Title>
       <Row>
         <Col lg={4}>

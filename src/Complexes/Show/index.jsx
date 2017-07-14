@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import BodyClassName from 'react-body-classname';
 import { Grid } from 'react-flexbox-grid';
+import { get } from '../../utils';
 
 import MainTitle from './MainTitle';
 import Carousel from './Carousel';
@@ -13,24 +14,50 @@ import Offers from './Offers';
 import District from './District';
 import Location from './Location';
 
-export default () =>
-  (<div>
-    <Helmet>
-      <title>Compass - ЖК Полянка/44</title>
-    </Helmet>
-    <BodyClassName className="complex-page">
+export default class Complexes extends Component {
+  constructor() {
+    super();
+    this.state = {
+      complex: {},
+    };
+  }
+
+  componentDidMount() {
+    get(`complexes/${this.props.match.params.id}`)
+      .then((json) => {
+        this.setState({
+          complex: json,
+        });
+      });
+  }
+
+  render() {
+    if (!this.state.complex.id) { return null; }
+    return (
       <div>
-        <MainTitle />
-        <Carousel />
-        <Grid>
-          <MainInformation />
-          <Characteristics />
-          <Description />
-          <Infrastructure />
-        </Grid>
-        <Offers />
-        <District />
-        <Location />
+        <Helmet>
+          <title>{`Compass - ${this.state.complex.name}`}</title>
+        </Helmet>
+        <BodyClassName className="complex-page">
+          <div>
+            <MainTitle name={this.state.complex.name} address={this.state.complex.address} />
+            <Carousel images={this.state.complex.images} />
+            <Grid>
+              <MainInformation
+                offersCount={this.state.complex.statistics.propertiesCount}
+                architect={this.state.complex.details.architect}
+                developer="Группа «ПСН»"
+              />
+              <Characteristics complex={this.state.complex} />
+              <Description />
+              <Infrastructure />
+            </Grid>
+            <Offers name={this.state.complex.name} />
+            <District />
+            <Location />
+          </div>
+        </BodyClassName>
       </div>
-    </BodyClassName>
-  </div>);
+    );
+  }
+}
