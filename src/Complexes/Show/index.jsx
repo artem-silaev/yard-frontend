@@ -23,7 +23,10 @@ export default class Complexes extends Component {
   }
 
   componentDidMount() {
-    get(`complexes/${this.props.match.params.slug}`).then(data => this.setState({ complex: data }));
+    get(`complexes/${this.props.match.params.slug}`)
+      .then((complex) => {
+        this.setState({ complex });
+      });
   }
 
   render() {

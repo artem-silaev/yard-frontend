@@ -97,11 +97,41 @@ export default (props) => {
                 от {priceFrom} до {priceTo} млн
               </Value>
             </Block>}
+          {security &&
+            <Block>
+              <Name>Безопасность:</Name>
+              <Value>
+                {securityKinds[security]}
+              </Value>
+            </Block>}
+        </Col>
+        <Col lg={4}>
+          {constructionKind &&
+            <Block>
+              <Name>Конструкция корпусов:</Name>
+              <Value>
+                {constructionKinds[constructionKind]}
+              </Value>
+            </Block>}
           {area &&
             <Block>
               <Name>Площадь:</Name>
               <Value>
-                От {area.from.toFixed(2)} до {area.to.toFixed(2)} м²
+                от {area.from.toFixed(2)} до {area.to.toFixed(2)} м²
+              </Value>
+            </Block>}
+          {ceilHeight &&
+            <Block>
+              <Name>Высота потолков:</Name>
+              <Value>
+                {ceilHeight.from.toFixed(2)} &mdash; {ceilHeight.to.toFixed(2)} м
+              </Value>
+            </Block>}
+          {maintenanceCosts &&
+            <Block>
+              <Name>Обслуживание:</Name>
+              <Value>
+                {maintenanceCosts} руб / м² / месяц
               </Value>
             </Block>}
         </Col>
@@ -119,40 +149,8 @@ export default (props) => {
             <Block>
               <Name>Конец строительства:</Name>
               <Value>
-                {quarters[commissioningQuarter]} квартал {commissioningYear}{' '}
+                {quarters[commissioningQuarter]} квартал {commissioningYear} года
                 года
-              </Value>
-            </Block>}
-          {constructionKind &&
-            <Block>
-              <Name>Конструкция корпусов:</Name>
-              <Value>
-                {constructionKinds[constructionKind]}
-              </Value>
-            </Block>}
-
-          {maintenanceCosts &&
-            <Block>
-              <Name>Обслуживание:</Name>
-              <Value>
-                {maintenanceCosts} руб / м² / месяц
-              </Value>
-            </Block>}
-        </Col>
-        <Col lg={4}>
-          {ceilHeight &&
-            <Block>
-              <Name>Высота потолков:</Name>
-              <Value>
-                {ceilHeight.from.toFixed(2)} &mdash; {ceilHeight.to.toFixed(2)}{' '}
-                м
-              </Value>
-            </Block>}
-          {security &&
-            <Block>
-              <Name>Безопасность:</Name>
-              <Value>
-                {securityKinds[security]}
               </Value>
             </Block>}
           <Block>

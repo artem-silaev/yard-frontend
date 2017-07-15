@@ -21,7 +21,7 @@ export default class Complexes extends Component {
   }
 
   componentDidMount() {
-    get(encodeURI('complexes?filter[state]=public'))
+    get('complexes?filter[state]=public')
       .then(({ items: complexes }) => {
         this.setState({ complexes });
       });
