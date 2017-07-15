@@ -49,7 +49,7 @@ export default props =>
     <Grid>
       <Row between="lg">
         <Col lg>
-          <Name>{`Жилой комплекс «${props.name}»`}</Name>
+          <Name>Жилой комплекс «{props.name}»</Name>
           <Address>
             Район {props.location.subLocalityName}, {props.location.street},{' '}
             {props.location.house} • {props.location.postalCode}

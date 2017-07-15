@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^15.6.1",
+    "pluralize-ru": "^1.0.1",
     "react-body-classname": "^1.2.0",
     "react-document-title": "^2.0.3",
     "react-dom": "^15.6.1",

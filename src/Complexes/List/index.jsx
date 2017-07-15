@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import Discover from './Discover';
 import Card from './Card';
-import { get, getExternalImageUrl } from '../../utils';
+import { getExternalImageUrl } from '../../utils';
+import { get } from '../api';
 
 const Content = styled.main`
   display: block;
@@ -24,7 +25,7 @@ export default class Complexes extends Component {
   }
 
   componentDidMount() {
-    get('complexes?filter%5Bstate%5D=public')
+    get(encodeURI('complexes?filter[state]=public'))
       .then((json) => {
         this.setState({
           complexes: json.items,

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import { getExternalImageUrl, getPhotoCountLocale } from '../../utils';
+import pluralize from 'pluralize-ru';
+import { getExternalImageUrl } from '../../utils';
 
 const Images = styled.section`
   display: flex;
@@ -28,24 +29,29 @@ const Button = styled.button`
 
 export default (props) => {
   const images = props.images || [];
-  if (images.length === 0) { return null; }
-  return (
-    <section>
-      <Images>
-        {images.map(image => (
-          <img
-            key={image.id}
-            src={getExternalImageUrl(image)}
-            alt={image.id}
-          />
-      ))}
-      </Images>
-      <Grid>
-        <Row>
-          <ButtonWrapper>
-            <Button>{getPhotoCountLocale(images.length)}</Button>
-          </ButtonWrapper>
-        </Row>
-      </Grid>
-    </section>);
+  const length = props.images.length;
+  const countPhoto = pluralize(length, '%d фотографий', '%d фотография', '%d фотографии', '%d фотографий');
+  if (images.length !== 0) {
+    return (
+      <section>
+        <Images>
+          {images.map(image => (
+            <img
+              key={image.id}
+              src={getExternalImageUrl(image)}
+              alt={image.id}
+            />
+        ))}
+        </Images>
+        <Grid>
+          <Row>
+            <ButtonWrapper>
+              <Button>{countPhoto}</Button>
+            </ButtonWrapper>
+          </Row>
+        </Grid>
+      </section>);
+  }
+
+  return <section />;
 };

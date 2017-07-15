@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import BodyClassName from 'react-body-classname';
 import { Grid } from 'react-flexbox-grid';
-import { get } from '../../utils';
+import { get } from '../api';
 
 import MainTitle from './MainTitle';
 import Carousel from './Carousel';
