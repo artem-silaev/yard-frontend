@@ -23,38 +23,45 @@ export default class Complexes extends Component {
   }
 
   componentDidMount() {
-    get(`complexes/${this.props.match.params.slug}`)
-      .then((json) => {
-        this.setState({
-          complex: json,
-        });
-      });
+    get(`complexes/${this.props.match.params.slug}`).then(data => this.setState({ complex: data }));
   }
 
   render() {
-    const complex = this.state.complex;
-    if (!complex.id) { return null; }
+    const {
+      location = {},
+      amenities = {},
+      images = {},
+      name,
+      fullDescription,
+      details: { architect, developer } = {},
+      statistics: { propertiesCount } = {},
+    } =
+      this.state.complex || {};
     return (
       <div>
         <Helmet>
-          <title>{`Compass - ${complex.name}`}</title>
+          <title>{`Compass - ${name}`}</title>
         </Helmet>
         <BodyClassName className="complex-page">
           <div>
-            <MainTitle name={complex.name} location={complex.location} />
-            <Carousel images={complex.images} />
+            <MainTitle name={name} location={location} />
+            {images.length > 0 && <Carousel images={images} />}
             <Grid>
               <MainInformation
-                offersCount={complex.statistics.propertiesCount}
-                architect={complex.details.architect}
-                developer={complex.details.developer}
+                offersCount={propertiesCount}
+                architect={architect}
+                developer={developer}
               />
-              <Characteristics complex={complex} />
-              {complex.fullDescription && <Description text={complex.fullDescription} />}
-              <Infrastructure amenities={complex.amenities} />
+              <Characteristics complex={this.state.complex} />
+              {fullDescription && <Description fullDescription={fullDescription} />}
+              {amenities.length > 0 && <Infrastructure amenities={amenities} />}
             </Grid>
-            <Offers name={complex.name} />
-            <District />
+            <Offers name={name} />
+            <District
+              district="Якиманка"
+              description="Исторический центр Москвы в&nbsp;двух километрах&nbsp;от&nbsp;Кремля"
+              link="Гид по Якиманке &#62;"
+            />
             <Location />
           </div>
         </BodyClassName>

@@ -27,31 +27,31 @@ const Button = styled.button`
   color: #fff;
 `;
 
-export default (props) => {
-  const images = props.images || [];
-  const length = props.images.length;
-  const countPhoto = pluralize(length, '%d фотографий', '%d фотография', '%d фотографии', '%d фотографий');
-  if (images.length !== 0) {
-    return (
-      <section>
-        <Images>
-          {images.map(image => (
-            <img
-              key={image.id}
-              src={getExternalImageUrl(image)}
-              alt={image.id}
-            />
-        ))}
-        </Images>
-        <Grid>
-          <Row>
-            <ButtonWrapper>
-              <Button>{countPhoto}</Button>
-            </ButtonWrapper>
-          </Row>
-        </Grid>
-      </section>);
-  }
-
-  return <section />;
+export default ({ images = [] }) => {
+  const length = images.length;
+  const countPhoto = pluralize(
+    length,
+    '%d фотографий',
+    '%d фотография',
+    '%d фотографии',
+    '%d фотографий',
+  );
+  return (
+    <section>
+      <Images>
+        {images.map(image =>
+          <img key={image.id} src={getExternalImageUrl(image)} alt={image.id} />,
+        )}
+      </Images>
+      <Grid>
+        <Row>
+          <ButtonWrapper>
+            <Button>
+              {countPhoto}
+            </Button>
+          </ButtonWrapper>
+        </Row>
+      </Grid>
+    </section>
+  );
 };

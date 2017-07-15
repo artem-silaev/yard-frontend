@@ -9,7 +9,10 @@ import {
 } from './../dictionaries';
 import { formatPrice } from '../../utils';
 
-const Characteristics = styled.div`margin-top: 2rem;`;
+const Characteristics = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+`;
 
 const Title = styled.h2`
   font-size: 1.5rem;
@@ -65,8 +68,8 @@ export default (props) => {
     statistics: { price, totalArea: area } = {},
   } =
     props.complex || {};
-  const priceFrom = formatPrice(price.from.rub);
-  const priceTo = formatPrice(price.to.rub);
+  const priceFrom = price && formatPrice(price.from.rub);
+  const priceTo = price && formatPrice(price.to.rub);
   return (
     <Characteristics>
       <Title>Характеристики</Title>
@@ -79,12 +82,13 @@ export default (props) => {
                 {units}
               </Value>
             </Block>}
-          <Block>
-            <Name>Статус:</Name>
-            <Value>
-              {kinds[propertyKind || 'flat']}
-            </Value>
-          </Block>
+          {propertyKind &&
+            <Block>
+              <Name>Статус:</Name>
+              <Value>
+                {kinds[propertyKind]}
+              </Value>
+            </Block>}
           {priceFrom &&
             priceTo &&
             <Block>
@@ -93,8 +97,7 @@ export default (props) => {
                 от {priceFrom} до {priceTo} млн
               </Value>
             </Block>}
-          {area.to &&
-            area.to &&
+          {area &&
             <Block>
               <Name>Площадь:</Name>
               <Value>

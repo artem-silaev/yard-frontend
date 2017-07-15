@@ -23,19 +23,16 @@ const Text = styled.p`
   line-height: 1.5625rem;
 `;
 
-export default (props) => {
-  const { amenities = [] } = props;
-  return (
-    <Infrastructure>
-      {amenities.length > 0 && <Title>Инфраструктура</Title>}
-      <Row>
-        {amenities.map(amenity =>
+export default ({ amenities = [] }) => (
+  <Infrastructure>
+    <Title>Инфраструктура</Title>
+    <Row>
+      {amenities.map(amenity =>
         (<Col lg={2}>
           <Text>
             {amenity}
           </Text>
         </Col>),
       )}
-      </Row>
-    </Infrastructure>);
-};
+    </Row>
+  </Infrastructure>);

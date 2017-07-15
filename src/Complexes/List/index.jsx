@@ -8,13 +8,9 @@ import Card from './Card';
 import { getExternalImageUrl } from '../../utils';
 import { get } from '../api';
 
-const Content = styled.main`
-  display: block;
-`;
+const Content = styled.main`display: block;`;
 
-const Cards = styled.div`
-  margin-top: 4rem;
-`;
+const Cards = styled.div`margin-top: 4rem;`;
 
 export default class Complexes extends Component {
   constructor() {
@@ -26,10 +22,8 @@ export default class Complexes extends Component {
 
   componentDidMount() {
     get(encodeURI('complexes?filter[state]=public'))
-      .then((json) => {
-        this.setState({
-          complexes: json.items,
-        });
+      .then(({ items: complexes }) => {
+        this.setState({ complexes });
       });
   }
 

@@ -31,7 +31,7 @@ export default props =>
         <Title>Описание</Title>
       </Col>
       <Col lg={10}>
-        <Text>{props.text}</Text>
+        <Text>{props.fullDescription}</Text>
       </Col>
     </Row>
   </Description>);

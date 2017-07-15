@@ -37,17 +37,17 @@ const Photo = styled.img`
   height: 35rem;
 `;
 
-export default () =>
+export default props =>
   (<District>
     <Grid>
       <Row middle="lg" between="lg">
         <Col lg={6}>
-          <Heading>Якиманка</Heading>
+          <Heading>{props.district}</Heading>
           <Description>
-            Исторический центр Москвы в двух <br />километрах от Кремля
+            {props.description}
           </Description>
           <Link href="#">
-            Гид по Якиманке &#62;
+            {props.link}
           </Link>
         </Col>
         <Col lg={6}>
