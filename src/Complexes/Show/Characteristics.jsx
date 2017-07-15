@@ -1,14 +1,14 @@
-import React from 'react';
-import { Row, Col } from 'react-flexbox-grid';
-import styled from 'styled-components';
-import { kinds, securityKinds, constructionKinds, furnitureKinds, conditions } from './../dictionaries';
-import { formatPrice } from '../../utils';
+  import React from 'react';
+  import { Row, Col } from 'react-flexbox-grid';
+  import styled from 'styled-components';
+  import { quarters, kinds, securityKinds, constructionKinds } from './../dictionaries';
+  import { formatPrice } from '../../utils';
 
-const Characteristics = styled.div`
+  const Characteristics = styled.div`
   margin-top: 2rem;
 `;
 
-const Title = styled.h2`
+  const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.6875rem;
@@ -19,7 +19,7 @@ const Title = styled.h2`
   margin-bottom: 1.125rem;
 `;
 
-const Block = styled.dl`
+  const Block = styled.dl`
   display: flex;
   margin: 0.5rem 0 0 0;
   &:first-child {
@@ -27,14 +27,14 @@ const Block = styled.dl`
   }
 `;
 
-const Name = styled.dt`
+  const Name = styled.dt`
   font-size: 1rem;
   color: #a9afb6;
   width: 50%;
   line-height: 1.5625rem;
 `;
 
-const Value = styled.dd`
+  const Value = styled.dd`
   font-size: 1rem;
   font-weight: 500;
   color: #3e4247;
@@ -43,59 +43,110 @@ const Value = styled.dd`
   line-height: 1.5625rem;
 `;
 
-export default (props) => {
-  const priceFrom = formatPrice(props.complex.statistics.price.from.rub);
-  const priceTo = formatPrice(props.complex.statistics.price.to.rub);
-  const totalAreaFrom = Math.round(props.complex.statistics.totalArea.from);
-  const totalAreaTo = Math.round(props.complex.statistics.totalArea.to);
-  return (
-    <Characteristics>
-      <Title>Характеристики</Title>
-      <Row>
-        <Col lg={4}>
-          <Block>
-            <Name>Количество квартир:</Name>
-            <Value>{props.complex.statistics.propertiesCount}</Value>
-          </Block>
-          <Block>
-            <Name>Статус:</Name>
-            <Value>{kinds[props.complex.details.propertyKind || 'flat']}</Value>
-          </Block>
-          <Block>
-            <Name>Цены:</Name>
-            <Value>от {priceFrom} до {priceTo} млн</Value>
-          </Block>
-        </Col>
-        <Col lg={4}>
-          <Block>
-            <Name>Конструкция корпусов:</Name>
-            <Value>
-              {constructionKinds[props.complex.details.constructionKind]}
-            </Value>
-          </Block>
-          <Block>
-            <Name>Площадь:</Name>
-            <Value>От {totalAreaFrom} до {totalAreaTo} м²</Value>
-          </Block>
-          <Block>
-            <Name>Обслуживание:</Name>
-            <Value>{props.complex.details.maintenanceCosts} руб / м² / месяц</Value>
-          </Block>
-        </Col>
-        <Col lg={4}>
-          <Block>
-            <Name>Безопасность:</Name>
-            <Value>{securityKinds[props.complex.details.security]}</Value>
-          </Block>
-          <Block>
-            <Name>Состояние:</Name>
-            <Value>{conditions[props.complex.propertyDefaults.information.condition]}</Value>
-          </Block>
-          <Block>
-            <Name>Мебель:</Name>
-            <Value>{furnitureKinds[props.complex.propertyDefaults.information.furniture]}</Value>
-          </Block>
-        </Col>
-      </Row>
-    </Characteristics>);
-};
+  export default (props) => {
+    const {
+  units,
+  details: {
+    commissioningYear,
+    commissioningQuarter,
+    parking = 0,
+    undergroundGarages = 0,
+    propertyKind,
+    security,
+    constructionKind,
+    ceilHeight,
+    maintenanceCosts,
+    startYear,
+    startQuarter,
+  } = {},
+  statistics: { price, totalArea: area } = {},
+} =
+  props.complex || {};
+    const priceFrom = formatPrice(price.from.rub);
+    const priceTo = formatPrice(price.to.rub);
+    return (
+      <Characteristics>
+        <Title>Характеристики</Title>
+        <Row>
+          <Col lg={4}>
+            {units &&
+            <Block>
+              <Name>Количество квартир:</Name>
+              <Value>{units}</Value>
+            </Block>}
+            <Block>
+              <Name>Статус:</Name>
+              <Value>{kinds[propertyKind || 'flat']}</Value>
+            </Block>
+            {priceFrom && priceTo &&
+            <Block>
+              <Name>Цены:</Name>
+              <Value>от {priceFrom} до {priceTo} млн</Value>
+            </Block>}
+            {area.to && area.to &&
+            <Block>
+              <Name>Площадь:</Name>
+              <Value>От {area.from.toFixed(2)} до {area.to.toFixed(2)} м²</Value>
+            </Block>
+          }
+          </Col>
+          <Col lg={4}>
+            {startQuarter &&
+            startYear &&
+            <Block>
+              <Name>Начало строительства:</Name>
+              <Value>{quarters[startQuarter]} квартал {startYear} года</Value>
+            </Block>
+          }
+            {commissioningQuarter &&
+            commissioningYear &&
+            <Block>
+              <Name>Конец строительства:</Name>
+              <Value>{quarters[commissioningQuarter]} квартал {commissioningYear} года</Value>
+            </Block>
+          }
+            { constructionKind &&
+            <Block>
+              <Name>Конструкция корпусов:</Name>
+              <Value>
+                {constructionKinds[constructionKind]}
+              </Value>
+            </Block>
+        }
+
+            {maintenanceCosts &&
+            <Block>
+              <Name>Обслуживание:</Name>
+              <Value>{maintenanceCosts} руб / м² / месяц</Value>
+            </Block>
+        }
+          </Col>
+          <Col lg={4}>
+            {ceilHeight &&
+            <Block>
+              <Name>Высота потолков:</Name>
+              <Value>
+                {ceilHeight.from.toFixed(2)} &mdash; {ceilHeight.to.toFixed(2)} м
+              </Value>
+            </Block>}
+            {security &&
+            <Block>
+              <Name>Безопасность:</Name>
+              <Value>{securityKinds[security]}</Value>
+            </Block>}
+            <Block>
+              <Name>Наземная парковка:</Name>
+              <Value>
+                {parking ? `${parking} м/м` : 'Нет'}
+              </Value>
+            </Block>
+            <Block>
+              <Name>Подземная парковка:</Name>
+              <Value>
+                {undergroundGarages ? `${undergroundGarages} м/м` : 'Нет'}
+              </Value>
+            </Block>
+          </Col>
+        </Row>
+      </Characteristics>);
+  };

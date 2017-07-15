@@ -14,7 +14,7 @@ const Card = styled.a`
 `;
 
 const Image = styled.img`
-  width: 500px;
+  width: 491px;
   height: 350px;
 `;
 
@@ -43,6 +43,12 @@ const Address = styled.h4`
   margin-bottom: 0.5rem;
 `;
 
+const WrapperImage = styled.div`
+  display: inline-block;
+  width: 491px;
+  height: 350px;
+`;
+
 const Description = styled.p`
   line-height: 1.5;
   margin-top: 0.5rem;
@@ -51,7 +57,9 @@ const Description = styled.p`
 
 export default props =>
   (<Card href={props.url}>
-    <Image src={props.image} alt="" />
+    <WrapperImage>
+      <Image src={props.image} alt="" />
+    </WrapperImage>
     <Content>
       <Location>
         {props.location}

@@ -19,6 +19,7 @@ const Button = styled.button`
   cursor: pointer;
   border: 0;
   background-color: #00779a;
+  font-family: 'Fira Sans', sans-serif;
   font-size: 0.625rem;
   font-weight: 300;
   line-height: 0.625rem;

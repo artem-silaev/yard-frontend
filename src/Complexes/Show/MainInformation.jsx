@@ -33,18 +33,21 @@ const Subheading = styled.small `
 export default props =>
   (<MainInformation>
     <Block>
+      {props.offersCount &&
       <Heading>
         {props.offersCount} <Subheading>предложений</Subheading>
-      </Heading>
+      </Heading>}
     </Block>
+    {props.architect &&
     <Block>
       <Heading>
         {props.architect}<Subheading>архитектор</Subheading>
       </Heading>
-    </Block>
+    </Block>}
+    {props.developer &&
     <Block>
       <Heading>
         {props.developer}<Subheading>застройщик</Subheading>
       </Heading>
-    </Block>
+    </Block>}
   </MainInformation>);

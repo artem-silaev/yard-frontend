@@ -41,13 +41,13 @@ export default class Complexes extends Component {
         </Helmet>
         <BodyClassName className="complex-page">
           <div>
-            <MainTitle name={complex.name} address={complex.address} />
+            <MainTitle name={complex.name} location={complex.location} />
             <Carousel images={complex.images} />
             <Grid>
               <MainInformation
                 offersCount={complex.statistics.propertiesCount}
                 architect={complex.details.architect}
-                developer="Группа «ПСН»"
+                developer={complex.details.developer}
               />
               <Characteristics complex={complex} />
               {complex.fullDescription && <Description text={complex.fullDescription} />}

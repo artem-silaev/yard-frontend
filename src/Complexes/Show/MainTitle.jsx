@@ -37,6 +37,7 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 300;
   line-height: 0.625rem;
+  font-family: 'Fira Sans', sans-serif;
   color: #00779a;
   border-radius: 2px;
   border: 1px solid #e0e0e1;
@@ -50,7 +51,8 @@ export default props =>
         <Col lg>
           <Name>{`Жилой комплекс «${props.name}»`}</Name>
           <Address>
-            {props.address}
+            Район {props.location.subLocalityName}, {props.location.street},{' '}
+            {props.location.house} • {props.location.postalCode}
           </Address>
         </Col>
         <ButtonWrapper>
