@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import BodyClassName from 'react-body-classname';
 import { Grid } from 'react-flexbox-grid';
+import { get } from '../api';
 
 import MainTitle from './MainTitle';
 import Carousel from './Carousel';
@@ -13,24 +14,61 @@ import Offers from './Offers';
 import District from './District';
 import Location from './Location';
 
-export default () =>
-  (<div>
-    <Helmet>
-      <title>Compass - ЖК Полянка/44</title>
-    </Helmet>
-    <BodyClassName className="complex-page">
+export default class Complexes extends Component {
+  constructor() {
+    super();
+    this.state = {
+      complex: {},
+    };
+  }
+
+  componentDidMount() {
+    get(`complexes/${this.props.match.params.slug}`)
+      .then((complex) => {
+        this.setState({ complex });
+      });
+  }
+
+  render() {
+    const {
+      location = {},
+      amenities = {},
+      images = {},
+      name,
+      fullDescription,
+      details: { architect, developer } = {},
+      statistics: { propertiesCount } = {},
+    } =
+      this.state.complex || {};
+    return (
       <div>
-        <MainTitle />
-        <Carousel />
-        <Grid>
-          <MainInformation />
-          <Characteristics />
-          <Description />
-          <Infrastructure />
-        </Grid>
-        <Offers />
-        <District />
-        <Location />
+        <Helmet>
+          <title>{`Compass - ${name}`}</title>
+        </Helmet>
+        <BodyClassName className="complex-page">
+          <div>
+            <MainTitle name={name} location={location} />
+            {images.length > 0 && <Carousel images={images} />}
+            <Grid>
+              <MainInformation
+                offersCount={propertiesCount}
+                architect={architect}
+                developer={developer}
+              />
+              <Characteristics complex={this.state.complex} />
+              {fullDescription && <Description fullDescription={fullDescription} />}
+              {amenities.length > 0 && <Infrastructure amenities={amenities} />}
+            </Grid>
+            <Offers name={name} />
+            <District
+              district="Якиманка"
+              description="Исторический центр Москвы в&nbsp;двух километрах&nbsp;от&nbsp;Кремля"
+              link="Гид по Якиманке &#62;"
+            />
+            <Location />
+          </div>
+        </BodyClassName>
       </div>
-    </BodyClassName>
-  </div>);
+    );
+  }
+}

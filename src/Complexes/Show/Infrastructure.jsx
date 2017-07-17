@@ -23,38 +23,16 @@ const Text = styled.p`
   line-height: 1.5625rem;
 `;
 
-export default () =>
-  (<Infrastructure>
+export default ({ amenities = [] }) => (
+  <Infrastructure>
     <Title>Инфраструктура</Title>
     <Row>
-      <Col lg={2}>
-        <Text>Бассейн</Text>
-      </Col>
-      <Col lg={2}>
-        <Text>Детский сад</Text>
-      </Col>
-      <Col lg={2}>
-        <Text>Частная школа</Text>
-      </Col>
-      <Col lg={2}>
-        <Text>Бассейн</Text>
-      </Col>
-      <Col lg={2}>
-        <Text>Детский сад</Text>
-      </Col>
-      <Col lg={2}>
-        <Text>Частная школа</Text>
-      </Col>
-    </Row>
-    <Row>
-      <Col lg={2}>
-        <Text>Частная школа</Text>
-      </Col>
-      <Col lg={2}>
-        <Text>Частная школа</Text>
-      </Col>
-      <Col lg={2}>
-        <Text>Частная школа</Text>
-      </Col>
+      {amenities.map(amenity =>
+        (<Col lg={2}>
+          <Text>
+            {amenity}
+          </Text>
+        </Col>),
+      )}
     </Row>
   </Infrastructure>);

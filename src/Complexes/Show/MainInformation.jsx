@@ -30,21 +30,24 @@ const Subheading = styled.small `
   line-height: 1.375rem;
 `;
 
-export default () =>
+export default props =>
   (<MainInformation>
     <Block>
+      {props.offersCount &&
       <Heading>
-        950 <Subheading>предложений</Subheading>
-      </Heading>
+        {props.offersCount} <Subheading>предложений</Subheading>
+      </Heading>}
     </Block>
+    {props.architect &&
     <Block>
       <Heading>
-        John McAslan + Partners<Subheading>архитектор</Subheading>
+        {props.architect}<Subheading>архитектор</Subheading>
       </Heading>
-    </Block>
+    </Block>}
+    {props.developer &&
     <Block>
       <Heading>
-        Группа «ПСН»<Subheading>застройщик</Subheading>
+        {props.developer}<Subheading>застройщик</Subheading>
       </Heading>
-    </Block>
+    </Block>}
   </MainInformation>);

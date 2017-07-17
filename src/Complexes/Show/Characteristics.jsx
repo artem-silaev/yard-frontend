@@ -1,9 +1,17 @@
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import {
+  quarters,
+  kinds,
+  securityKinds,
+  constructionKinds,
+} from './../dictionaries';
+import { formatPrice } from '../../utils';
 
 const Characteristics = styled.div`
   margin-top: 2rem;
+  margin-bottom: 3rem;
 `;
 
 const Title = styled.h2`
@@ -41,51 +49,124 @@ const Value = styled.dd`
   line-height: 1.5625rem;
 `;
 
-export default () =>
-  (<Characteristics>
-    <Title>Характеристики</Title>
-    <Row>
-      <Col lg={4}>
-        <Block>
-          <Name>Количество квартир:</Name>
-          <Value>1 503</Value>
-        </Block>
-        <Block>
-          <Name>Статус:</Name>
-          <Value>Квартиры</Value>
-        </Block>
-        <Block>
-          <Name>Цены:</Name>
-          <Value>от 5.3 до 143.5 млн</Value>
-        </Block>
-      </Col>
-      <Col lg={4}>
-        <Block>
-          <Name>Количество квартир:</Name>
-          <Value>1 503</Value>
-        </Block>
-        <Block>
-          <Name>Количество квартир:</Name>
-          <Value>1 503</Value>
-        </Block>
-        <Block>
-          <Name>Количество квартир:</Name>
-          <Value>1 503</Value>
-        </Block>
-      </Col>
-      <Col lg={4}>
-        <Block>
-          <Name>Количество квартир:</Name>
-          <Value>1 503</Value>
-        </Block>
-        <Block>
-          <Name>Количество квартир:</Name>
-          <Value>1 503</Value>
-        </Block>
-        <Block>
-          <Name>Количество квартир:</Name>
-          <Value>1 503</Value>
-        </Block>
-      </Col>
-    </Row>
-  </Characteristics>);
+export default (props) => {
+  const {
+    units,
+    details: {
+      commissioningYear,
+      commissioningQuarter,
+      parking = 0,
+      undergroundGarages = 0,
+      propertyKind,
+      security,
+      constructionKind,
+      ceilHeight,
+      maintenanceCosts,
+      startYear,
+      startQuarter,
+    } = {},
+    statistics: { price, totalArea: area } = {},
+  } =
+    props.complex || {};
+  const priceFrom = price && formatPrice(price.from.rub);
+  const priceTo = price && formatPrice(price.to.rub);
+  return (
+    <Characteristics>
+      <Title>Характеристики</Title>
+      <Row>
+        <Col lg={4}>
+          {units &&
+            <Block>
+              <Name>Количество квартир:</Name>
+              <Value>
+                {units}
+              </Value>
+            </Block>}
+          {propertyKind &&
+            <Block>
+              <Name>Статус:</Name>
+              <Value>
+                {kinds[propertyKind]}
+              </Value>
+            </Block>}
+          {priceFrom &&
+            priceTo &&
+            <Block>
+              <Name>Цены:</Name>
+              <Value>
+                от {priceFrom} до {priceTo} млн
+              </Value>
+            </Block>}
+          {security &&
+            <Block>
+              <Name>Безопасность:</Name>
+              <Value>
+                {securityKinds[security]}
+              </Value>
+            </Block>}
+        </Col>
+        <Col lg={4}>
+          {constructionKind &&
+            <Block>
+              <Name>Конструкция корпусов:</Name>
+              <Value>
+                {constructionKinds[constructionKind]}
+              </Value>
+            </Block>}
+          {area &&
+            <Block>
+              <Name>Площадь:</Name>
+              <Value>
+                от {area.from.toFixed(2)} до {area.to.toFixed(2)} м²
+              </Value>
+            </Block>}
+          {ceilHeight &&
+            <Block>
+              <Name>Высота потолков:</Name>
+              <Value>
+                {ceilHeight.from.toFixed(2)} &mdash; {ceilHeight.to.toFixed(2)} м
+              </Value>
+            </Block>}
+          {maintenanceCosts &&
+            <Block>
+              <Name>Обслуживание:</Name>
+              <Value>
+                {maintenanceCosts} руб / м² / месяц
+              </Value>
+            </Block>}
+        </Col>
+        <Col lg={4}>
+          {startQuarter &&
+            startYear &&
+            <Block>
+              <Name>Начало строительства:</Name>
+              <Value>
+                {quarters[startQuarter]} квартал {startYear} года
+              </Value>
+            </Block>}
+          {commissioningQuarter &&
+            commissioningYear &&
+            <Block>
+              <Name>Конец строительства:</Name>
+              <Value>
+                {quarters[commissioningQuarter]} квартал {commissioningYear} года
+                года
+              </Value>
+            </Block>}
+          <Block>
+            <Name>Наземная парковка:</Name>
+            <Value>
+              {parking ? `${parking} м/м` : 'Нет'}
+            </Value>
+          </Block>
+          <Block>
+            <Name>Подземная парковка:</Name>
+            <Value>
+              {undergroundGarages ? `${undergroundGarages} м/м` : 'Нет'}
+            </Value>
+          </Block>
+        </Col>
+      </Row>
+    </Characteristics>
+  );
+};

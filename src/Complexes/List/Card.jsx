@@ -13,10 +13,17 @@ const Card = styled.a`
   }
 `;
 
+const Image = styled.img`
+  width: 491px;
+  height: 350px;
+`;
+
 const Content = styled.article`
   background-color: #fff;
   padding: 1.5rem 5.38125rem 0 1rem;
   border-bottom: 0.125rem solid #646971;
+  width: 100%;
+  display: block;
 `;
 
 const Location = styled.p`
@@ -36,6 +43,12 @@ const Address = styled.h4`
   margin-bottom: 0.5rem;
 `;
 
+const WrapperImage = styled.div`
+  display: inline-block;
+  width: 491px;
+  height: 350px;
+`;
+
 const Description = styled.p`
   line-height: 1.5;
   margin-top: 0.5rem;
@@ -44,7 +57,9 @@ const Description = styled.p`
 
 export default props =>
   (<Card href={props.url}>
-    <img src={props.image} alt="" />
+    <WrapperImage>
+      <Image src={props.image} alt="" />
+    </WrapperImage>
     <Content>
       <Location>
         {props.location}

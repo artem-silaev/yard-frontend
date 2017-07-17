@@ -27,11 +27,17 @@ const MenuLink = styled.a`
   text-decoration: none;
 `;
 
+const MainLink = styled.a`
+  display: block;
+  align-self: center;
+  padding-top: .375rem;
+`;
+
 export default () =>
   (<Header>
     <Grid>
       <Wrapper>
-        <img alt="" src={compassLogo} />
+        <MainLink href="/"><img alt="" src={compassLogo} /></MainLink>
         <Menu>
           <MenuLink to="#">
             Купить
