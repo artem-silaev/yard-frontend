@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^15.6.1",
+    "lint": "^1.1.2",
     "pluralize-ru": "^1.0.1",
+    "react": "^15.6.1",
     "react-body-classname": "^1.2.0",
     "react-document-title": "^2.0.3",
     "react-dom": "^15.6.1",
@@ -19,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prepush": "eslint src/ --ext .jsx --ext .js"
+    "lint": "eslint src/ --ext .jsx --ext .js",
+    "prepush": "yarn lint"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -27,6 +29,10 @@
     "eslint-plugin-import": "^2.6.1",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "now": "^7.2.4"
+  },
+  "now": {
+    "alias": "artemsilaev-yard-frontend"
   }
 }
