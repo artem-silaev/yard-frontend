@@ -8,9 +8,6 @@ script:
 deploy:
   provider: script
   skip_cleanup: true
-  script:
-    - yarn build
-    - now build --public --name yard-frontend --token $NowToken
-    - now alias --token $NowToken
+  script: yarn build && now build --public --name yard-frontend --token $NowToken && now alias --token $NowToken
   on:
     branch: travis
