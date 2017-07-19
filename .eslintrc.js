@@ -1,9 +1,10 @@
 module.exports = {
-  "extends": "airbnb",
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "flowtype"
   ],
   "rules": {
     "react/prop-types": 0

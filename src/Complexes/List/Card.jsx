@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import styled from 'styled-components';
 
@@ -9,7 +10,7 @@ const Card = styled.a`
   margin-bottom: 3rem;
 
   &:hover {
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -55,7 +56,13 @@ const Description = styled.p`
   color: #3e4247;
 `;
 
-export default props =>
+export default (props: {
+  url: string,
+  image: string,
+  location: string,
+  description: string,
+  address: Object
+}) =>
   (<Card href={props.url}>
     <WrapperImage>
       <Image src={props.image} alt="" />
