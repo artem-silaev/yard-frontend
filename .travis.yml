@@ -10,4 +10,4 @@ deploy:
   skip_cleanup: true
   script: yarn build && now build --public --name yard-frontend --token $NOW_TOKEN && now alias --token $NOW_TOKEN
   on:
-    branch: travis
+    branch: master
