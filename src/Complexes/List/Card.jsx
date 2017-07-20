@@ -61,7 +61,7 @@ export default (props: {
   image: string,
   location: string,
   description: string,
-  address: Object
+  address: string
 }) =>
   (<Card href={props.url}>
     <WrapperImage>

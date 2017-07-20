@@ -1,4 +1,4 @@
-// @flow
+/* @flow */
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Grid } from 'react-flexbox-grid';
@@ -8,19 +8,18 @@ import Discover from './Discover';
 import Card from './Card';
 import { getExternalImageUrl } from '../../utils';
 import { get } from '../api';
+import type { ComplexType } from '../types';
 
 const Content = styled.main`display: block;`;
 
 const Cards = styled.div`margin-top: 4rem;`;
 
 export default class Complexes extends Component {
-  constructor() {
-    super();
-    this.state = {
-      complexes: [],
-    };
-  }
-
+  state: {
+    complexes: Array<ComplexType>,
+  } = {
+    complexes: [],
+  };
   componentDidMount() {
     get('complexes?filter[state]=public')
       .then(({ items: complexes }) => {
