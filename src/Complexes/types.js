@@ -1,111 +1,92 @@
 /* eslint-disable import/prefer-default-export */
 // @flow
 
-export type ImageShape = {
+export type ImageType = {
   id: string,
   isPublic?: boolean,
 };
 
-export type LocationShape = {
-  latitude?: string,
-  localityId?: number,
+export type LocationType = {
   subLocalityName: string,
-  subwayIds?: Array<number>,
-  countryName?: string,
-  longitude?: string,
-  postalCode?: number,
-  countryId?: number,
-  house: string,
-  localityName?: string,
   street: string,
-  regionId?: number,
-  regionName?: string,
+  house: number,
+  postalCode: string,
+};
+
+export type DisrictType = {
+  link: string,
+  description: string,
+  district: string,
+}
+
+export type AmenityType = {
+  id: number,
+  amenity: string,
+};
+
+export type AreaType = {
+  min: number,
+  max: number,
+};
+
+export type PriceType = {
+  min: number,
+  max: number,
+};
+
+export type OfferType = {
+  amount: number,
+  square: AreaType,
+  price: PriceType,
+};
+
+export type ComplexDetails = {
+  architect: string,
+  developer: string,
+  security: string,
+  constructionKind: string,
+  ceilHeight: {
+    from: number,
+    to: number,
+  },
+  maintenanceCosts: ?string,
+  startYear: string,
+  startQuarter: string,
+  commissioningYear: string,
+  commissioningQuarter: string,
+  parking: string,
+  undergroundGarages: string,
+  propertyKind: string
+}
+
+type ComplexStatistics = {
+  propertiesCount: number,
+  price: {
+    from: {
+      rub: number,
+    },
+    to: {
+      rub: number,
+    },
+  },
+  totalArea: {
+    from: number,
+    to: number,
+  },
 };
 
 export type ComplexType = {
   commissioningYear?: number,
-  adjacentTerritory?: {
-    area?: number,
-    isAccessOpen?: boolean,
-    isAllowedCars?: boolean,
-    isGreeneryPlanted?: boolean,
-    playgrounds?: number,
-  },
+  details: ComplexDetails,
   slug: string,
   shortDescription: string,
+  fullDescription: string,
   image: number,
   name: string,
-  updatedAt?: string,
-  location: LocationShape,
+  location: LocationType,
+  amenities: Array<AmenityType>,
   state: string,
-  statistics: {
-    resalePropertiesCount: number,
-    price: {
-      from: {
-        usd: number,
-        eur: number,
-        rub: number,
-      },
-      to: {
-        usd: number,
-        eur: number,
-        rub: number,
-      },
-    },
-    totalResaleArea: {
-      from: number,
-      to: number,
-    },
-    resalePrice: {
-      from: {
-        usd: number,
-        eur: number,
-        rub: number,
-      },
-      to: {
-        usd: number,
-        eur: number,
-        rub: number,
-      },
-    },
-    propertiesCount: number,
-    totalPrimaryArea: {
-      from: number,
-      to: number,
-    },
-    primaryPrice: {
-      from: {
-        usd: number,
-        eur: number,
-        rub: number,
-      },
-      to: {
-        usd: number,
-        eur: number,
-        rub: number,
-      },
-    },
-    primaryPropertiesCount: number,
-    totalArea: {
-      from: number,
-      to: number,
-    },
-  },
-  keysIssueDate?: string,
-  purchaseTimeConditions?: {
-    agreementPreparation?: number,
-    oralReservation?: number,
-  },
-  commissioningQuarter?: number,
-  linkedContactIds: Array<number>,
-  responsibleUser?: {
-    id: number,
-    departmentId: number,
-  },
-  createdByUserId: number,
-  id: number,
-  updatedByUserId?: number,
-  createdAt: string,
-  images: Array<ImageShape>,
-  accreditors: Array<number>,
+  statistics: ComplexStatistics,
+  units: string,
+  images: Array<ImageType>,
 };

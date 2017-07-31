@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import type { AmenityType } from '../types';
 
 const Infrastructure = styled.div`
   margin-top: 2rem;
@@ -23,11 +26,13 @@ const Text = styled.p`
   line-height: 1.5625rem;
 `;
 
-export default ({ amenities = [] }) => (
+type Props = { amenities: Array<AmenityType> };
+
+export default (props: Props) => (
   <Infrastructure>
     <Title>Инфраструктура</Title>
     <Row>
-      {amenities.map(amenity =>
+      {props.amenities.map(amenity =>
         (<Col lg={2}>
           <Text>
             {amenity}

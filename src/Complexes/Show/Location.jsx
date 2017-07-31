@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
@@ -40,12 +42,14 @@ const Duration = styled.p`
   color: #a9afb6;
 `;
 
+const publicURL: string = process.env.PUBLIC_URL || '';
+
 export default () =>
   (<Location>
     <Grid>
       <Row>
         <Col lg={6}>
-          <LocationMap src={`${process.env.PUBLIC_URL}/images/map.png`} alt="" />
+          <LocationMap src={`${publicURL}/images/map.png`} alt="" />
         </Col>
         <Col lg={6}>
           <Content>

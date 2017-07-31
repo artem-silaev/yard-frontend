@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
@@ -24,7 +26,11 @@ const Text = styled.p`
   margin: 0;
 `;
 
-export default props =>
+type Props = {
+  fullDescription: string,
+};
+
+export default (props: Props) =>
   (<Description>
     <Row>
       <Col lg={2}>

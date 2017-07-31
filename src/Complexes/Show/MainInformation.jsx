@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -30,7 +32,13 @@ const Subheading = styled.small `
   line-height: 1.375rem;
 `;
 
-export default props =>
+type Props = {
+  offersCount: number,
+  architect: string,
+  developer: string,
+};
+
+export default (props: Props) =>
   (<MainInformation>
     <Block>
       {props.offersCount &&

@@ -1,8 +1,11 @@
+// @flow
+
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import BodyClassName from 'react-body-classname';
 import { Grid } from 'react-flexbox-grid';
 import { get } from '../api';
+import type { ComplexType, OfferType } from '../types';
 
 import MainTitle from './MainTitle';
 import Carousel from './Carousel';
@@ -15,31 +18,35 @@ import District from './District';
 import Location from './Location';
 
 export default class Complexes extends Component {
-  constructor() {
-    super();
-    this.state = {
-      complex: {},
-    };
-  }
+  state = { complex: {} };
+
+  state: {
+    complex: ComplexType,
+  };
 
   componentDidMount() {
     get(`complexes/${this.props.match.params.slug}`)
-      .then((complex) => {
+      .then((complex: ComplexType) => {
         this.setState({ complex });
       });
   }
 
   render() {
     const {
-      location = {},
-      amenities = {},
-      images = {},
+      location: { subLocalityName = '', street = '', house = '', postalCode = '' } = {},
+      amenities,
+      images,
       name,
       fullDescription,
-      details: { architect, developer } = {},
+      details: { architect = '', developer = '' } = {},
       statistics: { propertiesCount } = {},
     } =
       this.state.complex || {};
+    const offers: Array<OfferType> = [
+      { amount: 3, square: { min: 26, max: 50 }, price: { min: 65, max: 100 } },
+      { amount: 4, square: { min: 20, max: 50 }, price: { min: 75, max: 100 } },
+      { amount: 5, square: { min: 20, max: 50 }, price: { min: 5, max: 10 } },
+    ];
     return (
       <div>
         <Helmet>
@@ -47,8 +54,8 @@ export default class Complexes extends Component {
         </Helmet>
         <BodyClassName className="complex-page">
           <div>
-            <MainTitle name={name} location={location} />
-            {images.length > 0 && <Carousel images={images} />}
+            <MainTitle name={name} location={`${subLocalityName}, ${street}, ${house} • ${postalCode}`} />
+            {images && <Carousel images={images} />}
             <Grid>
               <MainInformation
                 offersCount={propertiesCount}
@@ -57,9 +64,9 @@ export default class Complexes extends Component {
               />
               <Characteristics complex={this.state.complex} />
               {fullDescription && <Description fullDescription={fullDescription} />}
-              {amenities.length > 0 && <Infrastructure amenities={amenities} />}
+              {amenities && amenities.length > 0 && <Infrastructure amenities={amenities} />}
             </Grid>
-            <Offers name={name} />
+            <Offers name={name} offers={offers} />
             <District
               district="Якиманка"
               description="Исторический центр Москвы в&nbsp;двух километрах&nbsp;от&nbsp;Кремля"

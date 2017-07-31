@@ -1,4 +1,5 @@
-/* @flow */
+// @flow
+
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Grid } from 'react-flexbox-grid';
@@ -41,7 +42,7 @@ export default class Complexes extends Component {
               {this.state.complexes.map(complex =>
                 (<Card
                   url={`/complexes/${complex.slug}`}
-                  location={`${complex.location.subLocalityName}, ${complex.location.street}, ${complex.location.house}`}
+                  location={complex.location.subLocalityName}
                   address={complex.name}
                   description={complex.shortDescription}
                   image={getExternalImageUrl(complex.image)}

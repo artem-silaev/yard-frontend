@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
@@ -44,15 +46,19 @@ const Button = styled.button`
   background: transparent;
 `;
 
-export default props =>
+type Props = {
+  name: string,
+  location: string,
+};
+
+export default (props: Props) =>
   (<Header>
     <Grid>
       <Row between="lg">
         <Col lg>
           <Name>Жилой комплекс «{props.name}»</Name>
           <Address>
-            Район {props.location.subLocalityName}, {props.location.street},{' '}
-            {props.location.house} • {props.location.postalCode}
+            Район {props.location}
           </Address>
         </Col>
         <ButtonWrapper>

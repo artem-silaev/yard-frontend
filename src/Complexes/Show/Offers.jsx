@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import type { OfferType } from '../types';
 
 import Offer from './Offer';
 
@@ -19,34 +22,23 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-export default props =>
+type Props = {
+  name: string,
+  offers: Array<OfferType>,
+};
+
+export default (props: Props) =>
   (<Offers>
     <Grid>
       <Title>
         Предложения в ЖК «{props.name}»
       </Title>
       <Row>
-        <Col lg={4}>
-          <Offer
-            amount={1}
-            square={{ min: 59, max: 120 }}
-            price={{ min: 20.3, max: 84.2 }}
-          />
-        </Col>
-        <Col lg={4}>
-          <Offer
-            amount={2}
-            square={{ min: 20.3, max: 84.2 }}
-            price={{ min: 20.3, max: 84.2 }}
-          />
-        </Col>
-        <Col lg={4}>
-          <Offer
-            amount={1}
-            square={{ min: 59, max: 120 }}
-            price={{ min: 20.3, max: 84.2 }}
-          />
-        </Col>
+        {props.offers.map((offer: OfferType) =>
+          (<Col lg={4}>
+            <Offer offer={offer} />
+          </Col>),
+        )}
       </Row>
     </Grid>
   </Offers>);
