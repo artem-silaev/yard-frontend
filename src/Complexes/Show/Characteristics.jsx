@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
@@ -8,6 +10,8 @@ import {
   constructionKinds,
 } from './../dictionaries';
 import { formatPrice } from '../../utils';
+import type { ComplexType } from '../types';
+
 
 const Characteristics = styled.div`
   margin-top: 2rem;
@@ -49,7 +53,11 @@ const Value = styled.dd`
   line-height: 1.5625rem;
 `;
 
-export default (props) => {
+type Props = {
+  complex: ComplexType,
+};
+
+export default (props: Props) => {
   const {
     units,
     details: {

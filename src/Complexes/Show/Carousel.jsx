@@ -1,8 +1,11 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import pluralize from 'pluralize-ru';
 import { getExternalImageUrl } from '../../utils';
+import type { ImageType } from '../types';
 
 const Images = styled.section`
   display: flex;
@@ -27,8 +30,10 @@ const Button = styled.button`
   color: #fff;
 `;
 
-export default ({ images = [] }) => {
-  const length = images.length;
+type Props = { images: Array<ImageType> };
+
+export default (props: Props) => {
+  const length = props.images.length;
   const countPhoto = pluralize(
     length,
     '%d фотографий',
@@ -39,7 +44,7 @@ export default ({ images = [] }) => {
   return (
     <section>
       <Images>
-        {images.map(image =>
+        {props.images.map(image =>
           <img key={image.id} src={getExternalImageUrl(image)} alt={image.id} />,
         )}
       </Images>

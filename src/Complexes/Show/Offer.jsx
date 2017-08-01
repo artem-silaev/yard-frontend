@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react';
 import { Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import type { OfferType } from '../types';
 
 const Offer = styled.div`
   background-color: #fff;
@@ -47,19 +50,23 @@ const Button = styled.button`
   font-family: 'Fira Sans', sans-serif;
 `;
 
-export default props =>
+type Props = {
+  offer: OfferType,
+};
+
+export default (props: Props) =>
   (<Offer>
-    <Title>{props.amount}-комнатные квартиры</Title>
+    <Title>{props.offer.amount}-комнатные квартиры</Title>
     <Property>
       <Name>Площадь</Name>
       <Value>
-        от {props.square.min} до {props.square.max} м²
+        от {props.offer.square.min} до {props.offer.square.max} м²
       </Value>
     </Property>
     <Property>
       <Name>Стоимость</Name>
       <Value>
-        от {props.price.min} до {props.price.max} млн руб
+        от {props.offer.price.min} до {props.offer.price.max} млн руб
       </Value>
     </Property>
     <Row center="lg">

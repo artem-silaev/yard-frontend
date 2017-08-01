@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import type { DisrictType } from '../types';
 
 const District = styled.section`
   background-color: #3e4247;
@@ -37,7 +40,9 @@ const Photo = styled.img`
   height: 35rem;
 `;
 
-export default props =>
+const publicURL: string = process.env.PUBLIC_URL || '';
+
+export default (props: DisrictType) =>
   (<District>
     <Grid>
       <Row middle="lg" between="lg">
@@ -53,7 +58,7 @@ export default props =>
         <Col lg={6}>
           <Photo
             className="complex-district-photo"
-            src={`${process.env.PUBLIC_URL}/images/polyanka-photo.jpg`}
+            src={`${publicURL}/images/polyanka-photo.jpg`}
           />
         </Col>
       </Row>
