@@ -3,6 +3,7 @@
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import media from '../../media';
 
 const Title = styled.h2`
   font-size: 1.5rem;
@@ -25,7 +26,7 @@ const Button = styled.button`
 `;
 
 export default () =>
-  (<Row center="lg">
+  (<Row center="xs">
     <Col lg={8}>
       <Title>Discover Our New Developments</Title>
       <Text>
